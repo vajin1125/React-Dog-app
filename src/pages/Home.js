@@ -1,6 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { trackPromise } from 'react-promise-tracker';
 import apikey from "../api";
 import { LoadingIndicator } from "../component/spinner";
@@ -150,49 +149,12 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 my-10 lg:my-20f">
           {!searched ? (
             dogs.map((dog) => (
-              // <Link
-              //   // to={`/${dog.name}`}
-              //   key={dog.id}
-              //   className="bg-slate-700 p-4 rounded transition-all duration-200"
-              //   onClick={() => handleModal(dog.name)}
-              // >
-              //   <div className="overflow-hidden">
-              //     <img
-              //       src={dog.image.url}
-              //       alt={dog.name}
-              //       loading="lazy"
-              //       className="md:h-72 w-full object-cover hover:scale-110 transition duration-300 ease-in-out"
-              //     />
-              //   </div>
-              //   <h3 className="text-slate-200 text-lg font-bold mt-4">
-              //     {dog.name}
-              //   </h3>
-              //   <p className="text-slate-200">Bred For: {dog.bred_for}</p>
-              // </Link>
-              <DogCard dog={dog} handleModal={handleModal} />
+              <DogCard key={dog.id} dog={dog} handleModal={handleModal} />
             ))
           ) : (
             <>
               {dogs.map((dog) => (
-                <Link
-                  // to={`/${dog.name}`}
-                  key={dog.id}
-                  className="bg-slate-700 p-4 rounded transition-all duration-200"
-                  onClick={() => handleModal(dog.name)}
-                >
-                  <div className="overflow-hidden">
-                    <img
-                      src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
-                      alt={dog.name}
-                      loading="lazy"
-                      className="md:h-72 w-full object-cover hover:scale-110 transition duration-300 ease-in-out"
-                    />
-                  </div>
-                  <h3 className="text-slate-200 text-lg font-bold mt-4">
-                    {dog.name}
-                  </h3>
-                  <p className="text-slate-200">Bred For: {dog.bred_for}</p>
-                </Link>
+                <DogCard key={dog.id} dog={dog} handleModal={handleModal} searched={searched}/>
               ))}
             </>
           )}

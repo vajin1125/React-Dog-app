@@ -89,16 +89,30 @@ export const SingleDog = props => {
                             {item.bred_for}
                           </li>
                           <li>
+                            <span className="font-bold text-slate-200">Breed Group:</span>{" "}
+                            {item.breed_group}
+                          </li>
+                          <li>
                             <span className="font-bold text-slate-200">Height:</span>{" "}
-                            {item.height.metric} cm
+                            <ul className="pl-4">
+                              <li>
+                                <span className="text-slate-200">Imperial: {item.height.imperial} cm</span>
+                              </li>
+                              <li>
+                                <span className="text-slate-200">Metric: {item.height.metric} cm</span>
+                              </li>
+                            </ul>
                           </li>
                           <li>
                             <span className="font-bold text-slate-200">Weight:</span>{" "}
-                            {item.weight.metric} kgs
-                          </li>
-                          <li>
-                            <span className="font-bold text-slate-200">Breed Group:</span>{" "}
-                            {item.breed_group}
+                            <ul className="pl-4">
+                              <li>
+                                <span className="text-slate-200">Imperial: {item.weight.imperial} kgs</span>
+                              </li>
+                              <li>
+                                <span className="text-slate-200">Metric: {item.weight.metric} kgs</span>
+                              </li>
+                            </ul>
                           </li>
                           <li>
                             <span className="font-bold text-slate-200">Lifespan:</span>{" "}

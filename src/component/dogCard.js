@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const DogCard = props => {
+
   return(
     <>
       <Link
@@ -12,7 +13,7 @@ export const DogCard = props => {
       >
         <div className="overflow-hidden">
           <img
-            src={props.dog.image.url}
+            src={ props.searched ? `https://cdn2.thedogapi.com/images/${props.dog.reference_image_id}.jpg` : props.dog.image.url}
             alt={props.dog.name}
             loading="lazy"
             className="md:h-72 w-full object-cover hover:scale-110 transition duration-300 ease-in-out"
